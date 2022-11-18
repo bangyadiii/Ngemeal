@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".ui.auth.signup.SignUpAddressFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:layout_marginTop="24dp"
+        android:paddingLeft="24dp"
+        android:paddingBottom="24dp"
+        android:paddingRight="24dp"
+        tools:context=".ui.auth.signup.SignUpFragment">
+
+        <TextView
+            style="@style/TextView.PoppinsNormal16spBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="No HP" />
+
+
+        <EditText
+
+            android:hint="Masukkan nama lengkap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/EditText.PoppinsNormal14spBlack"
+            android:background="@drawable/shape_retangle_outline_8_020202"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/EditText.PoppinsNormal14spBlack"
+            android:layout_marginTop="16dp"
+            android:text="Alamat" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/EditText.PoppinsNormal14spBlack"
+            android:background="@drawable/shape_retangle_outline_8_020202"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:hint="Jl Mayjend Panjaitan, Gang 19"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/EditText.PoppinsNormal14spBlack"
+            android:layout_marginTop="16dp"
+            android:text="Nomor Rumah" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/EditText.PoppinsNormal14spBlack"
+            android:background="@drawable/shape_retangle_outline_8_020202"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:hint="58c"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/EditText.PoppinsNormal14spBlack"
+            android:layout_marginTop="16dp"
+            android:inputType="text"
+            android:text="City" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/EditText.PoppinsNormal14spBlack"
+            android:background="@drawable/shape_retangle_outline_8_020202"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:hint="Malang"
+            />
+
+        <Button
+            android:id="@+id/btn_sign_up_now"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign Up Now"
+            android:layout_marginTop="24dp"
+            android:textAllCaps="false"
+            style="@style/Button.Primary"
+            />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

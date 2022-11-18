@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".ui.auth.signup.SignUpFragment">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:paddingLeft="24dp"
+        android:paddingBottom="24dp"
+        android:paddingRight="24dp"
+        tools:context=".ui.auth.signup.SignUpFragment">
+
+        <ImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/empty_photo" />
+    <TextView
+        style="@style/TextView.PoppinsNormal16spBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Nama Lengkap" />
+
+
+    <EditText
+
+        android:hint="Masukkan nama lengkap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/EditText.PoppinsNormal14spBlack"
+        android:background="@drawable/shape_retangle_outline_8_020202"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/EditText.PoppinsNormal14spBlack"
+        android:layout_marginTop="16dp"
+        android:text="Email Address" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/EditText.PoppinsNormal14spBlack"
+        android:background="@drawable/shape_retangle_outline_8_020202"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:hint="Masukkan email"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/EditText.PoppinsNormal14spBlack"
+        android:layout_marginTop="16dp"
+        android:text="Password" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/EditText.PoppinsNormal14spBlack"
+        android:background="@drawable/shape_retangle_outline_8_020202"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:hint="Masukkan password"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/EditText.PoppinsNormal14spBlack"
+        android:layout_marginTop="16dp"
+        android:text="Konfirmasi password" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/EditText.PoppinsNormal14spBlack"
+        android:background="@drawable/shape_retangle_outline_8_020202"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:hint="Ketik ulang password"
+        />
+
+    <Button
+        android:id="@+id/btn_sign_up_continue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Continue"
+        android:layout_marginTop="24dp"
+        android:textAllCaps="false"
+        style="@style/Button.Primary"
+        />
+    <Button
+        android:id="@+id/btn_back_to_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:layout_marginTop="24dp"
+        android:textAllCaps="false"
+        style="@style/Button.Secondary"
+        />
+
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

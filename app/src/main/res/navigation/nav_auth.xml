@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/fragmentSignIn"
+    android:id="@+id/nav_auth">
+
+    <fragment android:id="@+id/fragmentSignIn"
+        android:name="com.ngemeal.ngemeal.ui.auth.signin.SignInFragment"
+        tools:layout="@layout/fragment_sign_in">
+
+        <action
+            android:id="@+id/action_fragmentSignIn_to_fragmentSignUp"
+            app:destination="@id/fragmentSignUp" />
+    </fragment>
+
+    <fragment android:id="@+id/fragmentSignUp"
+        android:name="com.ngemeal.ngemeal.ui.auth.signup.SignUpFragment"
+        tools:layout="@layout/fragment_sign_up">
+        <action
+            android:id="@+id/action_fragmentSignUp_to_fragmentSignUpAddress"
+            app:destination="@id/fragmentSignUpAddress" />
+    </fragment>
+
+    <fragment android:id="@+id/fragmentSignUpAddress"
+        android:name="com.ngemeal.ngemeal.ui.auth.signup.SignUpAddressFragment"
+        tools:layout="@layout/fragment_sign_up_address">
+        <action
+            android:id="@+id/action_fragmentSignUpAddress_to_signUpSuccessFragment"
+            app:destination="@id/signUpSuccessFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpSuccessFragment"
+        android:name="com.ngemeal.ngemeal.ui.auth.signup.SignUpSuccessFragment"
+        android:label="fragment_sign_up_success"
+        tools:layout="@layout/fragment_sign_up_success" />
+</navigation>
