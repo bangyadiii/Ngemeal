@@ -20,6 +20,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:subtitle="Find your best ever meal"
         app:subtitleTextAppearance="@style/TextView.PoppinsLight14spGray"
-        app:title="Sign In"
+        app:title="Sign In cuy"
         app:titleTextAppearance="@style/TextView.PoppinsMedium22spBlack" />
 </androidx.constraintlayout.widget.ConstraintLayout>
