@@ -46,4 +46,12 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+
+    implementation 'com.github.bumptech.glide:glide:4.14.2'
+    implementation 'com.squareup.retrofit2:retrofit:adapter-rxjava2:2.6.2'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
+    implementation 'io.reactivex.rxjava2.rxandroid:2.0.2'
+    implementation 'io.reactivex.rxjava2.rxkotlin:2.4.0'
+    implementation 'io.reactivex.retrofit2:retrofit:2.4.0'
+    implementation 'io.reactivex.retrofit2:convert-gson:2.4.0'
 }
