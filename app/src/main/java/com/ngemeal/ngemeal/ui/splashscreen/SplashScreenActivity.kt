@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import com.ngemeal.ngemeal.MainActivity
 import com.ngemeal.ngemeal.R
 import com.ngemeal.ngemeal.ui.auth.AuthActivity
 
