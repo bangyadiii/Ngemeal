@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.auth.AuthActivity">
+    tools:context=".ui.auth.AuthActivity"
+    android:background="#FAFAFC">
 
     <include layout="@layout/auth_toolbar_layout"
         android:layout_width="match_parent"

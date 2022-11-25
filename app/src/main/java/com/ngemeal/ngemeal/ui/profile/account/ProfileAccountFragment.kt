@@ -57,4 +57,9 @@ class ProfileAccountFragment : Fragment(), ProfileMenuAdapter.ItemAdapterCallbac
         Toast.makeText(context,"test click "+data.title, Toast.LENGTH_LONG).show()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }

@@ -55,4 +55,10 @@ class HomeNewTasteFragment : Fragment(),HomeNewtasteAdapter.ItemAdapterCallback 
     override fun onClick(v: View, data: HomeVerticalModel) {
         Toast.makeText(context,"percobaan "+data.title, Toast.LENGTH_SHORT).show()
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }

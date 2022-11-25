@@ -36,4 +36,9 @@ class ProfileFragment : Fragment() {
         binding.viewPager.adapter = sectionPagerAdapter
         binding.tabsLayout.setupWithViewPager(binding.viewPager)
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

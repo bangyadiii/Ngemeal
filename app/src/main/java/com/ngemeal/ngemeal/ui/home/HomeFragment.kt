@@ -59,4 +59,9 @@ class HomeFragment : Fragment(), HomeAdapter.ItemAdapterCallback {
     override fun onClick(v: View, data: HomeModel) {
         Toast.makeText(context,"test click",Toast.LENGTH_LONG).show()
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
