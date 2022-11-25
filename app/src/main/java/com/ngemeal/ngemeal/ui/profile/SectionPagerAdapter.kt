@@ -1,4 +1,4 @@
-package com.ngemeal.ngemeal.ui.home
+package com.ngemeal.ngemeal.ui.profile
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -6,39 +6,36 @@ import androidx.fragment.app.FragmentPagerAdapter
 import com.ngemeal.ngemeal.ui.home.newtaste.HomeNewTasteFragment
 import com.ngemeal.ngemeal.ui.home.popular.HomePopularFragment
 import com.ngemeal.ngemeal.ui.home.recommended.HomeRecommendedFragment
+import com.ngemeal.ngemeal.ui.profile.account.ProfileAccountFragment
+import com.ngemeal.ngemeal.ui.profile.ngemeal.ProfileNgemealFragment
 
 class SectionPagerAdapter (fm: FragmentManager): FragmentPagerAdapter(fm){
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when(position){
-            0-> "New Taste"
-            1-> "Popular"
-            2-> "Recommended"
+            0-> "Akun"
+            1-> "Ngemeal"
             else->""
         }
     }
 
     override fun getCount(): Int {
-        return 3
+        return 2
     }
 
     override fun getItem(position: Int): Fragment {
         var fragment : Fragment
         return when(position){
             0->{
-                fragment = HomeNewTasteFragment()
+                fragment = ProfileAccountFragment()
                 return fragment
             }
             1->{
-                fragment = HomePopularFragment()
-                return fragment
-            }
-            2->{
-                fragment = HomeRecommendedFragment()
+                fragment = ProfileNgemealFragment()
                 return fragment
             }
             else-> {
-                fragment = HomeNewTasteFragment()
+                fragment = ProfileAccountFragment()
                 return fragment
             }
         }

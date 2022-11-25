@@ -19,9 +19,6 @@ class HomeFragment : Fragment(), HomeAdapter.ItemAdapterCallback {
 
 
     private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -57,11 +54,6 @@ class HomeFragment : Fragment(), HomeAdapter.ItemAdapterCallback {
         foodList.add(HomeModel("Burger", "",4f))
         foodList.add(HomeModel("Cherry", "",4.5f))
 
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
     override fun onClick(v: View, data: HomeModel) {
