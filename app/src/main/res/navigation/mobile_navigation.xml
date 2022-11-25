@@ -12,14 +12,14 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_order"
         android:name="com.ngemeal.ngemeal.ui.order.OrderFragment"
-        android:label="@string/title_order"
+        android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_profile"
         android:name="com.ngemeal.ngemeal.ui.profile.ProfileFragment"
-        android:label="@string/title_profile"
+        android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
 </navigation>

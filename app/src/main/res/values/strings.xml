@@ -5,6 +5,6 @@
     <string name="signup_success_title">Yeay! Completed</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Home</string>
-    <string name="title_order">Order</string>
-    <string name="title_profile">Profile</string>
+    <string name="title_dashboard">Order</string>
+    <string name="title_notifications">profile</string>
 </resources>
