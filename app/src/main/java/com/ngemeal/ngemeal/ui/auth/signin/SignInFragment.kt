@@ -65,9 +65,11 @@ class SignInFragment : Fragment(), SignInContract.View {
             val deviceName = android.os.Build.MODEL;
 
             if(email.isNullOrEmpty()) {
-               binding.etEmail.error = "Masukkan email anda"
+                binding.etEmail.error = "Masukkan email anda"
+                binding.etEmail.requestFocus()
             }else if(password.isNullOrEmpty()) {
                 binding.etPassword.error = "Masukkan password anda"
+                binding.etPassword.requestFocus()
             }else {
                 presenter.submitLogin(email, password, deviceName)
             }
