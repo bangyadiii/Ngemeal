@@ -60,14 +60,16 @@ class SignInFragment : Fragment(), SignInContract.View {
         }
 
         binding.btnSignIn.setOnClickListener{
-            var email = binding.etEmail.text.toString()
-            var password = binding.etPassword.text.toString()
+            val email = binding.etEmail.text.toString()
+            val password = binding.etPassword.text.toString()
+            val deviceName = android.os.Build.MODEL;
+
             if(email.isNullOrEmpty()) {
                binding.etEmail.error = "Masukkan email anda"
             }else if(password.isNullOrEmpty()) {
                 binding.etPassword.error = "Masukkan password anda"
             }else {
-                presenter.submitLogin(email, password, "pixel-5")
+                presenter.submitLogin(email, password, deviceName)
             }
         }
 
