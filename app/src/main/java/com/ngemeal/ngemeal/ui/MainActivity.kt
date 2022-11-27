@@ -1,5 +1,6 @@
 package com.ngemeal.ngemeal.ui
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -9,8 +10,10 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.ngemeal.ngemeal.Ngemeal
 import com.ngemeal.ngemeal.R
 import com.ngemeal.ngemeal.databinding.ActivityMainBinding
+import com.ngemeal.ngemeal.ui.auth.AuthActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +21,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        if(Ngemeal.getApp().getToken() == null) {
+            val auth = Intent(this, AuthActivity::class.java)
+            startActivity(auth)
+            finish()
+        }
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)

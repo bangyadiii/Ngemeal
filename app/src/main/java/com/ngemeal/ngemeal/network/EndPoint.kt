@@ -1,11 +1,13 @@
 package com.ngemeal.ngemeal.network
 
 import com.ngemeal.ngemeal.model.response.Wrapper
+import com.ngemeal.ngemeal.model.response.home.HomeResponse
 import com.ngemeal.ngemeal.model.response.login.LoginResponse
 import io.reactivex.Observable
 import okhttp3.MultipartBody
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
@@ -40,4 +42,6 @@ interface EndPoint {
     @POST("auth/user/upload-photo")
     fun uploadPhoto(@Part photo : MultipartBody.Part) : Observable<Wrapper<Any>>
 
+    @GET("foods")
+    fun getHome() : Observable<Wrapper<HomeResponse>>
 }
