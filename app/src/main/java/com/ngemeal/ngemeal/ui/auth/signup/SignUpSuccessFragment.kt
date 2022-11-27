@@ -1,5 +1,6 @@
 package com.ngemeal.ngemeal.ui.auth.signup
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import com.ngemeal.ngemeal.R
 import com.ngemeal.ngemeal.databinding.FragmentSignUpBinding
 import com.ngemeal.ngemeal.databinding.FragmentSignUpSuccessBinding
 import com.ngemeal.ngemeal.ui.auth.AuthActivity
+import com.readystatesoftware.chuck.internal.ui.MainActivity
 
 
 class SignUpSuccessFragment : Fragment() {
@@ -21,6 +23,11 @@ class SignUpSuccessFragment : Fragment() {
     ): View? {
         this._binding = FragmentSignUpSuccessBinding.inflate(inflater, container, false)
 
+        binding.btnFindFood.setOnClickListener{
+            val home = Intent(activity, MainActivity::class.java)
+            startActivity(home)
+            activity?.finishAffinity()
+        }
         return binding.root
     }
 

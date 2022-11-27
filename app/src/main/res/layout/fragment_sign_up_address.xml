@@ -27,8 +27,8 @@
 
 
         <EditText
-
-            android:hint="Masukkan nama lengkap"
+            android:id="@+id/etPhoneNumber"
+            android:hint="0896969508086"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/EditText.PoppinsNormal14spBlack"
@@ -47,6 +47,7 @@
             android:text="Alamat" />
 
         <EditText
+            android:id="@+id/etAlamat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/EditText.PoppinsNormal14spBlack"
@@ -66,6 +67,7 @@
             android:text="Nomor Rumah" />
 
         <EditText
+            android:id="@+id/etHouseNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/EditText.PoppinsNormal14spBlack"
@@ -85,6 +87,7 @@
             android:text="City" />
 
         <EditText
+            android:id="@+id/etCity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/EditText.PoppinsNormal14spBlack"

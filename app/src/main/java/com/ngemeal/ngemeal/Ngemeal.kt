@@ -35,7 +35,6 @@ class Ngemeal : MultiDexApplication(){
 
     fun setUser(token : String) {
         getPreferences().edit().putString("PREFERENCE_USER", token).apply()
-        HttpClient.getInstance().buildRetrofitClient(token)
     }
 
     fun getUser() : String? {

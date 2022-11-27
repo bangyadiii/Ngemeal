@@ -37,8 +37,8 @@ data class User(
     val phone_number: String,
 
     @Expose()
-    @SerializedName("profile_photo_url")
-    val profile_photo_url: String,
+    @SerializedName("profile_photo_path")
+    val profile_photo_path: String,
 
     @Expose()
     @SerializedName("roles")
