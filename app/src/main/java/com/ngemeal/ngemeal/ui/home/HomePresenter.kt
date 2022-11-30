@@ -24,7 +24,7 @@ class HomePresenter(private val view : HomeContract.View) : HomeContract.Present
                 view.dismissLoading()
 
                 if (it.meta?.status.equals("success", true)) {
-                    it.data?.let { it1 -> view.onHomeSuccess(it1) }
+                    it.data.let { it1 -> view.onHomeSuccess(it1) }
                 } else {
                     it.meta?.message?.let { it1 -> view.onHomeFailed(it1) }
                 }

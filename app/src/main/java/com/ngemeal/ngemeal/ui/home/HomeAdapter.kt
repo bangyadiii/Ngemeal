@@ -5,10 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.ViewParent
 import androidx.appcompat.view.menu.MenuView.ItemView
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import androidx.recyclerview.widget.SortedListAdapterCallback
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target.SIZE_ORIGINAL
 import com.ngemeal.ngemeal.R
 import com.ngemeal.ngemeal.databinding.FragmentSignInBinding
@@ -16,6 +18,7 @@ import com.ngemeal.ngemeal.databinding.ItemHomeHorizontalBinding
 import com.ngemeal.ngemeal.model.dummy.HomeModel
 import com.ngemeal.ngemeal.model.response.home.Data
 import java.text.FieldPosition
+import java.util.Objects
 
 class HomeAdapter (
     private val listData : List<Data>,
@@ -41,12 +44,16 @@ class HomeAdapter (
         private val binding get() = _binding!!
         fun bind(data: Data, itemAdapterCallback: ItemAdapterCallback){
             itemView.apply {
-                binding.tvTitleFood.text = data.name
+                binding.tvTitleFood.text = if(data.name?.length!! >= 18) data.name.substring(0, 18) + "..."
+                                            else data.name
                 binding.rbFood.rating = data.rate ?: 0f
 
                 Glide.with(context)
-                    .load(data.images?.get(0)?.imagePath)
-                    .error(R.drawable.iv_sample_product)
+                    .load(data.images?.get(0)?.imagePath?.toUri()?.buildUpon()?.scheme("http")?.build())
+                    .apply(
+                        RequestOptions().placeholder(R.drawable.iv_sample_product)
+                            .error(R.drawable.iv_sample_product)
+                    )
                     .into(binding.ivPoster)
 
                 itemView.setOnClickListener{itemAdapterCallback.onClick(it,data)}

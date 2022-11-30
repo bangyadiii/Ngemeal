@@ -16,9 +16,7 @@ import com.ngemeal.ngemeal.R
 import com.ngemeal.ngemeal.databinding.FragmentSignUpAddressBinding
 import com.ngemeal.ngemeal.model.request.RegisterRequest
 import com.ngemeal.ngemeal.model.response.login.LoginResponse
-import com.ngemeal.ngemeal.ui.MainActivity
 import com.ngemeal.ngemeal.ui.auth.AuthActivity
-import com.ngemeal.ngemeal.ui.auth.signin.SignInContract
 
 
 class SignUpAddressFragment : Fragment(), SignUpContract.View {
