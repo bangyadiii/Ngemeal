@@ -1,6 +1,7 @@
 package com.ngemeal.ngemeal.ui.home
 
 import android.app.Dialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,7 @@ import com.ngemeal.ngemeal.model.dummy.HomeModel
 import com.ngemeal.ngemeal.model.response.home.Data
 import com.ngemeal.ngemeal.model.response.home.HomeResponse
 import com.ngemeal.ngemeal.ui.auth.signup.SignUpPresenter
+import com.ngemeal.ngemeal.ui.detail.DetailActivity
 
 class HomeFragment : Fragment(), HomeAdapter.ItemAdapterCallback, HomeContract.View {
 
@@ -69,7 +71,8 @@ class HomeFragment : Fragment(), HomeAdapter.ItemAdapterCallback, HomeContract.V
 //    }
 
     override fun onClick(v: View, data: Data) {
-        Toast.makeText(context,"test click",Toast.LENGTH_LONG).show()
+        val detail = Intent(activity, DetailActivity::class.java)
+        startActivity(detail)
     }
 
     override fun onDestroyView() {
