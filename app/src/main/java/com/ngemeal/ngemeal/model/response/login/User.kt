@@ -41,8 +41,8 @@ data class User(
     val profile_photo_path: String,
 
     @Expose()
-    @SerializedName("roles")
-    val roles: Array<Roles>,
+    @SerializedName("role_id")
+    val roleId: Int,
 
     @Expose()
     @SerializedName("two_factor_confirmed_at")

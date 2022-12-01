@@ -49,7 +49,7 @@ class HomeAdapter (
                 binding.rbFood.rating = data.rate ?: 0f
 
                 Glide.with(context)
-                    .load(data.images?.get(0)?.imagePath?.toUri()?.buildUpon()?.scheme("http")?.build())
+                    .load("https://via.placeholder.com/640x640.png/00ee99?text=rerum")
                     .apply(
                         RequestOptions().placeholder(R.drawable.iv_sample_product)
                             .error(R.drawable.iv_sample_product)

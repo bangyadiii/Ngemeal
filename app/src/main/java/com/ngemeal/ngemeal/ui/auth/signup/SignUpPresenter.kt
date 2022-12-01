@@ -8,6 +8,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import java.io.File
@@ -55,7 +56,7 @@ class SignUpPresenter(private val view : SignUpContract.View) : SignUpContract.P
         var fileImageProfile = File(filePathUri.path)
 
         // buat multipart request body
-        var profileImageRequestBody = RequestBody.create(MediaType.parse("multipart/form-data"), fileImageProfile)
+        var profileImageRequestBody = RequestBody.create("multipart/form-data".toMediaTypeOrNull(), fileImageProfile)
         var photoAvatarParms = MultipartBody.Part.createFormData("photo", fileImageProfile.name, profileImageRequestBody)
 
         var disposable = HttpClient.getInstance().getApi()?.uploadPhoto(photoAvatarParms)!!

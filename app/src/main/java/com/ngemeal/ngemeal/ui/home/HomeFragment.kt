@@ -34,19 +34,16 @@ class HomeFragment : Fragment(), HomeAdapter.ItemAdapterCallback, HomeContract.V
     ): View {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        presenter = HomePresenter(this)
-        presenter.getHome()
-        initView()
+
         val root: View = binding.root
         return root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-//        presenter = HomePresenter(this)
-//        presenter.getHome()
-//        initView()
-//        initDataDummy()
+        presenter = HomePresenter(this)
+        presenter.getHome()
+        initView()
     }
 
     private fun initView() {
