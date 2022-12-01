@@ -16,7 +16,7 @@
         android:layout_height="200dp"/>
 
     <TextView
-        android:text="Ouch! Hungry"
+        android:text="Ouch! Lapar"
         android:layout_marginTop="30dp"
         style="@style/TextView.PoppinsNormal20spBlack"
         android:layout_width="wrap_content"
@@ -35,6 +35,6 @@
         style="@style/Button.Primary"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Find Food"
+        android:text="Cari Makanan"
         android:textAllCaps="false"/>
 </LinearLayout>

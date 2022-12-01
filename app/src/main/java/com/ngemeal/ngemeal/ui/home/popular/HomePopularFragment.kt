@@ -1,5 +1,6 @@
 package com.ngemeal.ngemeal.ui.home.popular
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ngemeal.ngemeal.R
 import com.ngemeal.ngemeal.databinding.FragmentHomeNewTasteBinding
 import com.ngemeal.ngemeal.model.dummy.HomeVerticalModel
+import com.ngemeal.ngemeal.ui.detail.DetailActivity
 import com.ngemeal.ngemeal.ui.home.newtaste.HomeNewtasteAdapter
 
 class HomePopularFragment : Fragment() ,HomeNewtasteAdapter.ItemAdapterCallback {
@@ -50,7 +52,8 @@ class HomePopularFragment : Fragment() ,HomeNewtasteAdapter.ItemAdapterCallback 
     }
 
     override fun onClick(v: View, data: HomeVerticalModel) {
-        Toast.makeText(context,"percobaan "+data.title, Toast.LENGTH_SHORT).show()
+        val detail = Intent(activity, DetailActivity::class.java)
+        startActivity(detail)
     }
 
     override fun onDestroyView() {
