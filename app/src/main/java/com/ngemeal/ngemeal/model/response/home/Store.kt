@@ -1,9 +1,12 @@
 package com.ngemeal.ngemeal.model.response.home
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Store(
     @Expose
     @SerializedName("id")
@@ -28,11 +31,11 @@ data class Store(
     val logoPath: String?,
     @Expose
     @SerializedName("deleted_at")
-    val deletedAt: Any?,
+    val deletedAt: Int?,
     @Expose
     @SerializedName("created_at")
     val createdAt: Int?,
     @Expose
     @SerializedName("updated_at")
     val updatedAt: Int?
-)
+) : Parcelable

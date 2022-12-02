@@ -41,6 +41,10 @@ data class User(
     val profile_photo_path: String,
 
     @Expose()
+    @SerializedName("profile_photo_url")
+    val profile_photo_url: String,
+
+    @Expose()
     @SerializedName("role_id")
     val roleId: Int,
 

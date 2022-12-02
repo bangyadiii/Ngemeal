@@ -1,5 +1,6 @@
 package com.ngemeal.ngemeal.network
 
+import androidx.annotation.Nullable
 import com.ngemeal.ngemeal.model.response.Wrapper
 import com.ngemeal.ngemeal.model.response.home.HomeResponse
 import com.ngemeal.ngemeal.model.response.login.LoginResponse
@@ -11,6 +12,7 @@ import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
+import retrofit2.http.Query
 import retrofit2.http.Url
 
 interface EndPoint {
@@ -43,5 +45,9 @@ interface EndPoint {
     fun uploadPhoto(@Part photo : MultipartBody.Part) : Observable<Wrapper<Any>>
 
     @GET("foods")
-    fun getHome() : Observable<Wrapper<HomeResponse>>
+    fun getHome(@Query("category") category : String? = null,
+                @Query("rate") rate : Int? = null,
+                @Query("name") name: String? = null,
+                @Query("limit") limit : Int? = null,
+                ) : Observable<Wrapper<HomeResponse>>
 }

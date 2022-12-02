@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.ViewParent
 import androidx.appcompat.view.menu.MenuView.ItemView
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
@@ -44,12 +45,13 @@ class HomeAdapter (
         private val binding get() = _binding!!
         fun bind(data: Data, itemAdapterCallback: ItemAdapterCallback){
             itemView.apply {
-                binding.tvTitleFood.text = if(data.name?.length!! >= 18) data.name.substring(0, 18) + "..."
+                binding.tvTitleFood.text = if(data.name?.length!! >= 18) data.name.substring(0, 18).trim() + "..."
                                             else data.name
                 binding.rbFood.rating = data.rate ?: 0f
 
-                Glide.with(context)
-                    .load("https://via.placeholder.com/640x640.png/00ee99?text=rerum")
+                Glide.with(itemView.context)
+                    .load(data.images?.get(0)?.imageUrl)
+                    .centerCrop()
                     .apply(
                         RequestOptions().placeholder(R.drawable.iv_sample_product)
                             .error(R.drawable.iv_sample_product)

@@ -52,19 +52,12 @@ class SignUpAddressFragment : Fragment(), SignUpContract.View {
             var address = binding.etAlamat.text.toString()
             var houseNumber = binding.etHouseNumber.text.toString()
             var city = binding.etCity.text.toString()
-            validateData(phone, address, houseNumber, city)
+            validateData(it, phone, address, houseNumber, city)
 
-            data.let {
-                it.phoneNumber = phone
-                it.houseNumber = houseNumber
-                it.address = address
-                it.city = city
-            }
-            presenter.submitRegister(this.data, it)
         }
     }
 
-    private fun validateData(phone: String, address : String, houseNumber : String, city : String)  {
+    private fun validateData(it: View, phone: String, address : String, houseNumber : String, city : String)  {
         if(phone.isNullOrEmpty()) {
             binding.etPhoneNumber.error = "Masukkan phone number"
         }else if(address.isNullOrEmpty()) {
@@ -73,6 +66,14 @@ class SignUpAddressFragment : Fragment(), SignUpContract.View {
             binding.etHouseNumber.error = "Masukan house number"
         }else if(city.isNullOrEmpty()) {
             binding.etCity.error = "Masukan kota kamu"
+        }else  {
+            data.let {
+                it.phoneNumber = phone
+                it.houseNumber = houseNumber
+                it.address = address
+                it.city = city
+            }
+            presenter.submitRegister(this.data, it)
         }
     }
 

@@ -49,20 +49,8 @@ class SignUpFragment : Fragment() {
             var password = binding.etPassword.text.toString()
             var passConf = binding.etPasswordConf.text.toString()
 
-            validateInput(name, email, password, passConf)
-            var data = RegisterRequest(
-                name,
-                email,
-                password,
-                passConf,
-                "",
-                this.filePath,
-                "", "", ""
-            )
-            var bundler = Bundle()
-            bundler.putParcelable("data", data)
-            Navigation.findNavController(it)
-                .navigate(R.id.action_fragmentSignUp_to_fragmentSignUpAddress, bundler)
+            validateInput(it, name, email, password, passConf)
+
         }
     }
 
@@ -72,7 +60,7 @@ class SignUpFragment : Fragment() {
                 .start()
         }
     }
-    private fun validateInput(name : String, email : String, password : String, passwordConf: String) {
+    private fun validateInput(it : View, name : String, email : String, password : String, passwordConf: String) {
         if(name.isNullOrEmpty())  {
             binding.etNamaLengkap.setError("Masukkan nama kamu")
         }
@@ -84,6 +72,20 @@ class SignUpFragment : Fragment() {
         }
         else if (!password.equals(passwordConf)) {
             binding.etPasswordConf.setError("Password tidak sama")
+        }else {
+            var data = RegisterRequest(
+                name,
+                email,
+                password,
+                passwordConf,
+                "",
+                this.filePath,
+                "", "", ""
+            )
+            var bundler = Bundle()
+            bundler.putParcelable("data", data)
+            Navigation.findNavController(it)
+                .navigate(R.id.action_fragmentSignUp_to_fragmentSignUpAddress, bundler)
         }
     }
 

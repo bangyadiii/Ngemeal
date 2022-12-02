@@ -1,9 +1,12 @@
 package com.ngemeal.ngemeal.model.response.home
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Data(
     @Expose
     @SerializedName("id")
@@ -23,7 +26,7 @@ data class Data(
     val ingredients: String?,
     @Expose
     @SerializedName("price")
-    val price: Int?,
+    val price: String?,
     @Expose
     @SerializedName("rate")
     val rate: Float?,
@@ -32,10 +35,10 @@ data class Data(
     val types: String?,
     @Expose
     @SerializedName("archived")
-    val archived: Any?,
+    val archived: Int?,
     @Expose
     @SerializedName("deleted_at")
-    val deletedAt: Any?,
+    val deletedAt: Int?,
     @Expose
     @SerializedName("created_at")
     val createdAt: Int?,
@@ -48,4 +51,4 @@ data class Data(
     @Expose
     @SerializedName("store")
     val store: Store?
-)
+) : Parcelable

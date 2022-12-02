@@ -14,15 +14,19 @@ import com.ngemeal.ngemeal.databinding.FragmentHomeBinding
 import com.ngemeal.ngemeal.databinding.FragmentHomeNewTasteBinding
 import com.ngemeal.ngemeal.model.dummy.HomeModel
 import com.ngemeal.ngemeal.model.dummy.HomeVerticalModel
+import com.ngemeal.ngemeal.model.response.home.Data
+import com.ngemeal.ngemeal.model.response.home.HomeResponse
 import com.ngemeal.ngemeal.ui.detail.DetailActivity
 import com.ngemeal.ngemeal.ui.home.HomeAdapter
+import com.ngemeal.ngemeal.ui.home.HomePresenter
 import com.ngemeal.ngemeal.ui.home.SectionPagerAdapter
 
-class HomeNewTasteFragment : Fragment(),HomeNewtasteAdapter.ItemAdapterCallback {
+class HomeNewTasteFragment : Fragment(),HomeNewtasteAdapter.ItemAdapterCallback, HomeNewTasteContract.View {
     private var foodList : ArrayList<HomeVerticalModel> = ArrayList()
 
     private var _binding: FragmentHomeNewTasteBinding? = null
     private val binding get() = _binding!!
+    private lateinit var presenter: HomeNewTastePresenter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,31 +41,51 @@ class HomeNewTasteFragment : Fragment(),HomeNewtasteAdapter.ItemAdapterCallback 
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        presenter = HomeNewTastePresenter(this)
+        presenter.getHome(null)
 
-        initDataDummy()
-        var adapter = HomeNewtasteAdapter(foodList,this)
+    }
+
+//    fun initDataDummy(){
+//        foodList = ArrayList()
+//        foodList.add(HomeVerticalModel("Cherry", "100000","",5f))
+//        foodList.add(HomeVerticalModel("Burger", "200000","",4f))
+//        foodList.add(HomeVerticalModel("Cherry", "300000","",4.5f))
+//
+//    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    override fun onHomeSuccess(homeResponse: HomeResponse) {
+        var adapter = HomeNewtasteAdapter(homeResponse.data,this)
         var layoutManager: RecyclerView.LayoutManager= LinearLayoutManager(context,
             LinearLayoutManager.VERTICAL,false)
         binding.rcList.layoutManager = layoutManager
         binding.rcList.adapter = adapter
     }
 
-    fun initDataDummy(){
-        foodList = ArrayList()
-        foodList.add(HomeVerticalModel("Cherry", "100000","",5f))
-        foodList.add(HomeVerticalModel("Burger", "200000","",4f))
-        foodList.add(HomeVerticalModel("Cherry", "300000","",4.5f))
-
+    override fun onHomeFailed(message: String) {
+        Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
     }
 
-    override fun onClick(v: View, data: HomeVerticalModel) {
+    override fun showLoading() {
+        binding.rcList.visibility = View.GONE
+        binding.shimmerHomeVertical.startShimmer()
+        binding.shimmerHomeVertical.visibility = View.VISIBLE
+    }
+
+    override fun dismissLoading() {
+        binding.shimmerHomeVertical.stopShimmer()
+        binding.shimmerHomeVertical.visibility = View.GONE
+        binding.rcList.visibility = View.VISIBLE
+    }
+
+    override fun onClick(v: View, data: Data) {
         val detail = Intent(activity, DetailActivity::class.java)
         startActivity(detail)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
 }
