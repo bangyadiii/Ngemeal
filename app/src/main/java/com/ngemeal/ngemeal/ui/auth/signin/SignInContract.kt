@@ -7,7 +7,7 @@ import com.ngemeal.ngemeal.model.response.login.LoginResponse
 interface SignInContract {
     interface  View:BaseView{
         fun onLoginSuccess(loginResponse : LoginResponse)
-        fun onLoginFailed(message : String)
+        fun onLoginFailed(message : String, errors : HashMap<String, List<String>>?)
     }
 
     interface Presenter : SignInContract, BasePresenter{

@@ -41,9 +41,9 @@ class HomeNewtasteAdapter (
         private val binding get() = _binding!!
         fun bind(data: Data, itemAdapterCallback: ItemAdapterCallback){
             itemView.apply {
-                binding.tvTitle.text = if (data.name!!.length > 35) data.name.substring(35).trim() +"..."
+                binding.textView.text = if (data.name!!.length > 35) data.name.substring(35).trim() +"..."
                                         else   data.name
-                binding.tvPrice.formatPrice(data.price!!)
+                binding.tvPrice.formatPrice(data.price!!.toString())
                 binding.rbFood.rating = data.rate!!
 
                 Glide.with(context)

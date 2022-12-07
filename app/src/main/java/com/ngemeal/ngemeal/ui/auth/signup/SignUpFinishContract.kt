@@ -5,15 +5,16 @@ import com.ngemeal.ngemeal.base.BasePresenter
 import com.ngemeal.ngemeal.base.BaseView
 import com.ngemeal.ngemeal.model.request.RegisterRequest
 import com.ngemeal.ngemeal.model.response.login.LoginResponse
+import com.ngemeal.ngemeal.model.response.login.User
 
-interface SignUpContract {
+interface SignUpFinishContract {
     interface  View:BaseView{
         fun onRegisterSuccess(registerResponse : LoginResponse, view: android.view.View)
-        fun onRegisterPhotoSuccess(view : android.view.View)
+        fun onRegisterPhotoSuccess(res : User, view : android.view.View)
         fun onRegisterFailed(message : String)
     }
 
-    interface Presenter : SignUpContract, BasePresenter{
+    interface Presenter : SignUpFinishContract, BasePresenter{
         fun submitRegister(request : RegisterRequest, view : android.view.View)
         fun submitPhotoAvatar(filePathUri : Uri, view : android.view.View)
     }

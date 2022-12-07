@@ -63,6 +63,22 @@
         <item name="android:textColor">#1ABC9C</item>
         <item name="android:textSize">14sp</item>
     </style>
+    <style name="TextView.PoppinsLight10spGreen" >
+        <item name="android:fontFamily">@font/poppins_light</item>
+        <item name="android:textColor">#1ABC9C</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+    <style name="TextView.PoppinsLight10spBlack" >
+        <item name="android:fontFamily">@font/poppins_light</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="TextView.PoppinsLight10spGray" >
+        <item name="android:fontFamily">@font/poppins_light</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">10sp</item>
+    </style>
 
     <style name="EditText" />
     <style name="EditText.PoppinsNormal14spBlack">

@@ -19,7 +19,7 @@
          />
 
     <TextView
-        android:id="@+id/tvTitle"
+        android:id="@+id/tvJudulDisini"
         style="@style/TextView.PoppinsNormal16spBlack"
         android:layout_width="88dp"
         android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
         android:background="@color/white_smoke1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ivPoster"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/tvJudulDisini" />
 
     <RatingBar
         android:id="@+id/rbFood"

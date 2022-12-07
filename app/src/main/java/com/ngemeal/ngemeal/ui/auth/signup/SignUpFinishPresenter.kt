@@ -7,19 +7,19 @@ import com.ngemeal.ngemeal.network.HttpClient
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import java.io.File
 
-class SignUpPresenter(private val view : SignUpContract.View) : SignUpContract.Presenter {
+class SignUpFinishPresenter(private val view : SignUpFinishContract.View) : SignUpFinishContract.Presenter {
 
     private  val mCompositeDisposable : CompositeDisposable?
 
     init {
         this.mCompositeDisposable = CompositeDisposable()
     }
+
 
     override fun submitRegister(request: RegisterRequest, viewParms: View) {
         view.showLoading()
@@ -65,7 +65,7 @@ class SignUpPresenter(private val view : SignUpContract.View) : SignUpContract.P
             .subscribe ({
                 view.dismissLoading()
                 if (it.meta?.status.equals("success", true)) {
-                    it.data.let { it1 -> view.onRegisterPhotoSuccess(viewParms) }
+                    it.data.let { it1 -> view.onRegisterPhotoSuccess(it1,viewParms) }
                 } else {
                     view.onRegisterFailed(it.meta?.message.toString())
                 }
@@ -76,9 +76,11 @@ class SignUpPresenter(private val view : SignUpContract.View) : SignUpContract.P
         mCompositeDisposable!!.add(disposable)
     }
 
+
     override fun subscribe() {
-        TODO("Not yet implemented")
+        //
     }
+
 
     override fun unSubcribe() {
         this.mCompositeDisposable!!.clear()

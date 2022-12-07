@@ -1,7 +1,6 @@
 package com.ngemeal.ngemeal.ui.auth.signup
 
 import android.app.Dialog
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -16,15 +15,16 @@ import com.ngemeal.ngemeal.R
 import com.ngemeal.ngemeal.databinding.FragmentSignUpAddressBinding
 import com.ngemeal.ngemeal.model.request.RegisterRequest
 import com.ngemeal.ngemeal.model.response.login.LoginResponse
+import com.ngemeal.ngemeal.model.response.login.User
 import com.ngemeal.ngemeal.ui.auth.AuthActivity
 
 
-class SignUpAddressFragment : Fragment(), SignUpContract.View {
+class SignUpAddressFragment : Fragment(), SignUpFinishContract.View {
 
     private var _binding : FragmentSignUpAddressBinding? = null
     private val binding get() = _binding!!
     private lateinit var data: RegisterRequest
-    private lateinit var presenter: SignUpPresenter
+    private lateinit var presenter: SignUpFinishPresenter
     var progressDialog : Dialog? = null
 
     override fun onCreateView(
@@ -32,7 +32,7 @@ class SignUpAddressFragment : Fragment(), SignUpContract.View {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        this.presenter  = SignUpPresenter(this)
+        this.presenter  = SignUpFinishPresenter(this)
         this._binding = FragmentSignUpAddressBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -108,7 +108,10 @@ class SignUpAddressFragment : Fragment(), SignUpContract.View {
         }
     }
 
-    override fun onRegisterPhotoSuccess(view: View) {
+    override fun onRegisterPhotoSuccess(res : User,view: View) {
+        val gson =  Gson()
+        val json =  gson.toJson(res)
+        Ngemeal.getApp().setUser(json)
         Navigation.findNavController(view)
             .navigate(R.id.action_fragmentSignUpAddress_to_signUpSuccessFragment, null)
         (activity as AuthActivity).toolbarSignUpSuccess()

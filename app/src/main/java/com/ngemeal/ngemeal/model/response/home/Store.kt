@@ -31,11 +31,11 @@ data class Store(
     val logoPath: String?,
     @Expose
     @SerializedName("deleted_at")
-    val deletedAt: Int?,
+    val deletedAt: Long?,
     @Expose
     @SerializedName("created_at")
-    val createdAt: Int?,
+    val createdAt: Long?,
     @Expose
     @SerializedName("updated_at")
-    val updatedAt: Int?
+    val updatedAt: Long?
 ) : Parcelable

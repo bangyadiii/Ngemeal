@@ -1,12 +1,9 @@
 package com.ngemeal.ngemeal.ui.auth.signin
 
-import android.widget.Toast
 import com.ngemeal.ngemeal.network.HttpClient
-import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import kotlin.coroutines.coroutineContext
 
 class SignInPresenter(private val view : SignInContract.View) : SignInContract.Presenter {
 
@@ -27,11 +24,12 @@ class SignInPresenter(private val view : SignInContract.View) : SignInContract.P
                 if (it.meta?.status.equals("success", true)) {
                     view.onLoginSuccess(it.data)
                 } else {
-                    it.meta?.message?.let { it1 -> view.onLoginFailed(it1) }
+                    it.meta?.message?.let { it1 -> view.onLoginFailed(it1, it.errors) }
                 }
             }, {
+
                 view.dismissLoading()
-                view.onLoginFailed(it.message.toString())
+                view.onLoginFailed(it.message.toString(), null)
             })
         mCompositeDisposable!!.add(disposable)
 

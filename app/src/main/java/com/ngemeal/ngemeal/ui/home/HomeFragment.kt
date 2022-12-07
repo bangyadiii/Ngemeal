@@ -6,11 +6,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -19,11 +16,9 @@ import com.google.gson.Gson
 import com.ngemeal.ngemeal.Ngemeal
 import com.ngemeal.ngemeal.R
 import com.ngemeal.ngemeal.databinding.FragmentHomeBinding
-import com.ngemeal.ngemeal.model.dummy.HomeModel
 import com.ngemeal.ngemeal.model.response.home.Data
-import com.ngemeal.ngemeal.model.response.home.HomeResponse
+import com.ngemeal.ngemeal.model.response.PaginateResponse
 import com.ngemeal.ngemeal.model.response.login.User
-import com.ngemeal.ngemeal.ui.auth.signup.SignUpPresenter
 import com.ngemeal.ngemeal.ui.detail.DetailActivity
 
 class HomeFragment : Fragment(), HomeAdapter.ItemAdapterCallback, HomeContract.View {
@@ -91,7 +86,8 @@ class HomeFragment : Fragment(), HomeAdapter.ItemAdapterCallback, HomeContract.V
 //    }
 
     override fun onClick(v: View, data: Data) {
-        val detail = Intent(activity, DetailActivity::class.java)
+        Toast.makeText(requireContext(), data.id?.toString(), Toast.LENGTH_LONG).show()
+        val detail = Intent(activity, DetailActivity::class.java).putExtra("data", data )
         startActivity(detail)
     }
 
@@ -100,7 +96,7 @@ class HomeFragment : Fragment(), HomeAdapter.ItemAdapterCallback, HomeContract.V
         _binding = null
     }
 
-    override fun onHomeSuccess(homeResponse: HomeResponse) {
+    override fun onHomeSuccess(homeResponse: PaginateResponse<Data>) {
 //        Glide.with(requireContext()).load()
         var adapter = HomeAdapter(homeResponse.data,this)
         var layoutManager: RecyclerView.LayoutManager= LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)

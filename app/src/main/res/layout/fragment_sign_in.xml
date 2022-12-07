@@ -46,7 +46,9 @@
         android:paddingRight="10dp"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
+        android:inputType="textPassword"
         android:hint="password"
+
         />
 
     <Button

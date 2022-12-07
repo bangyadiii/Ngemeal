@@ -26,7 +26,7 @@ data class Data(
     val ingredients: String?,
     @Expose
     @SerializedName("price")
-    val price: String?,
+    val price: Int,
     @Expose
     @SerializedName("rate")
     val rate: Float?,
@@ -35,16 +35,16 @@ data class Data(
     val types: String?,
     @Expose
     @SerializedName("archived")
-    val archived: Int?,
+    val archived: Long?,
     @Expose
     @SerializedName("deleted_at")
-    val deletedAt: Int?,
+    val deletedAt: Long?,
     @Expose
     @SerializedName("created_at")
-    val createdAt: Int?,
+    val createdAt: Long?,
     @Expose
     @SerializedName("updated_at")
-    val updatedAt: Int?,
+    val updatedAt: Long?,
     @Expose
     @SerializedName("images")
     val images: List<Image?>?,

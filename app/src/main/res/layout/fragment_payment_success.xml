@@ -6,6 +6,7 @@
     android:background="#fff"
     android:gravity="center"
     android:orientation="vertical"
+    android:id="@+id/paymentSuccess"
     tools:context=".ui.detail.PaymentSuccessFragment">
 
     <ImageView
@@ -15,7 +16,7 @@
         android:src="@drawable/ic_success_order"/>
 
     <TextView
-        android:id="@+id/tvTitle"
+        android:id="@+id/tvJudulDisini"
         android:text="You’ve Made Order"
         android:layout_marginTop="30dp"
         style="@style/TextView.PoppinsNormal20spBlack"

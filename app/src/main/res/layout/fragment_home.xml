@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
@@ -14,16 +15,18 @@
 
         <ImageView
             android:id="@+id/ivProfile"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginEnd="24dp"
+            android:background="@drawable/bg_avatar_circle"
+            android:padding="3dp"
             android:src="@drawable/ic_picture_empty"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvTitle"
+            android:id="@+id/tvJudulDisini"
             style="@style/TextView.PoppinsNormal20spBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,7 +46,7 @@
             android:text="Cari makanan kesukaanmu!"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/tvJudulDisini" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

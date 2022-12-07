@@ -42,4 +42,10 @@ object Helpers {
             })
             .create()
     }
+
+    fun Long.convertLongToTime(formatTanggal : String) : String {
+        val date = Date(this)
+        val format = SimpleDateFormat(formatTanggal)
+        return format.format(date)
+    }
 }

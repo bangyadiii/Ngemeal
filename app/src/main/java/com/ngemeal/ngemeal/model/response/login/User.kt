@@ -1,8 +1,11 @@
 package com.ngemeal.ngemeal.model.response.login
 
+import android.os.Parcelable
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class User(
     @Expose()
     @SerializedName("id")
@@ -54,9 +57,9 @@ data class User(
 
     @Expose()
     @SerializedName("created_at")
-    val created_at: Int,
+    val created_at: Long?,
 
     @Expose()
     @SerializedName("updated_at")
-    val updated_at: Int
-)
+    val updated_at: Long?
+) : Parcelable

@@ -1,10 +1,10 @@
-package com.ngemeal.ngemeal.model.response.home
+package com.ngemeal.ngemeal.model.response
 
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class Link(
+data class PaginateLinks(
     @Expose
     @SerializedName("url")
     val url: String?,

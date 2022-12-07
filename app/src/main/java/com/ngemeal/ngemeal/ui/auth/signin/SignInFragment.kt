@@ -105,8 +105,17 @@ class SignInFragment : Fragment(), SignInContract.View {
         activity?.finish();
     }
 
-    override fun onLoginFailed(message: String) {
+    override fun onLoginFailed(message: String, errors: HashMap<String, List<String>>?) {
         Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+        if(errors != null) {
+            errors["email"]?.let {
+                binding.etEmail.error = it[0]
+                binding.etEmail.requestFocus()
+            }
+            errors["password"]?.let {
+                binding.etPassword.error = it[0]
+            }
+        }
     }
 
     override fun showLoading() {

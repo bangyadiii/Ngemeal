@@ -11,22 +11,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_rectangle_8_fff"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/textView1"
                 style="@style/EditText.PoppinsNormal14spBlack"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
                 android:text="Pesanan"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -40,10 +42,10 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/iv_sample_product"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textView1"/>
+                app:layout_constraintTop_toBottomOf="@id/textView1" />
 
             <TextView
-                android:id="@+id/tvTitle"
+                android:id="@+id/tvJudulDisini"
                 style="@style/TextView.PoppinsNormal16spBlack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -51,7 +53,7 @@
                 android:layout_marginTop="20dp"
                 android:text="Cherry Blonsom"
                 app:layout_constraintStart_toEndOf="@id/ivPoster"
-                app:layout_constraintTop_toBottomOf="@id/textView1"/>
+                app:layout_constraintTop_toBottomOf="@id/textView1" />
 
             <TextView
                 android:id="@+id/tvPrice"
@@ -61,7 +63,7 @@
                 android:layout_marginStart="12dp"
                 android:text="IDR 28.000"
                 app:layout_constraintStart_toEndOf="@+id/ivPoster"
-                app:layout_constraintTop_toBottomOf="@id/tvTitle"/>
+                app:layout_constraintTop_toBottomOf="@id/tvJudulDisini" />
 
             <TextView
                 android:id="@+id/textView14"
@@ -72,7 +74,7 @@
                 android:text="1 item"
                 app:layout_constraintBottom_toBottomOf="@id/ivPoster"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/ivPoster"/>
+                app:layout_constraintTop_toTopOf="@id/ivPoster" />
 
             <TextView
                 android:id="@+id/textView5"
@@ -88,48 +90,48 @@
             <TextView
                 android:id="@+id/textView6"
                 style="@style/TextView.PoppinsLight14spGray"
-                android:text="Cherry Blonsom"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:text="Cherry Blonsom"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textView5"/>
+                app:layout_constraintTop_toBottomOf="@id/textView5" />
 
             <TextView
                 android:id="@+id/textView7"
                 style="@style/TextView.PoppinsLight14spGray"
-                android:text="Driver"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="6dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="6dp"
+                android:text="Driver"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textView6"/>
+                app:layout_constraintTop_toBottomOf="@id/textView6" />
 
             <TextView
                 android:id="@+id/textView8"
                 style="@style/TextView.PoppinsLight14spGray"
-                android:text="Pajak 10%"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="6dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="6dp"
+                android:text="Pajak 10%"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textView7"/>
+                app:layout_constraintTop_toBottomOf="@id/textView7" />
 
             <TextView
                 android:id="@+id/textView9"
                 style="@style/TextView.PoppinsLight14spGray"
-                android:text="Total Harga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="6dp"
                 android:layout_marginBottom="16dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:text="Total Harga"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textView8"/>
+                app:layout_constraintTop_toBottomOf="@id/textView8" />
 
             <TextView
                 android:id="@+id/tvHarga"
@@ -177,7 +179,6 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout2"

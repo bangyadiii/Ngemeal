@@ -41,4 +41,10 @@ class Ngemeal : MultiDexApplication(){
         return getPreferences().getString("PREFERENCE_USER", null)
     }
 
+    fun unsetToken(){
+        getPreferences().edit().remove("PREFERENCE_TOKEN").apply()
+    }
+    fun unsetUser(){
+        getPreferences().edit().remove("PREFERENCE_USER").apply()
+    }
 }

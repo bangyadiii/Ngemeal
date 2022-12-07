@@ -9,11 +9,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ngemeal.ngemeal.R
 import com.ngemeal.ngemeal.databinding.FragmentHomeNewTasteBinding
 import com.ngemeal.ngemeal.model.dummy.HomeVerticalModel
 import com.ngemeal.ngemeal.model.response.home.Data
-import com.ngemeal.ngemeal.model.response.home.HomeResponse
+import com.ngemeal.ngemeal.model.response.PaginateResponse
 import com.ngemeal.ngemeal.ui.detail.DetailActivity
 import com.ngemeal.ngemeal.ui.home.newtaste.HomeNewTasteContract
 import com.ngemeal.ngemeal.ui.home.newtaste.HomeNewTastePresenter
@@ -58,11 +57,11 @@ class HomePopularFragment : Fragment() ,HomeNewtasteAdapter.ItemAdapterCallback,
     }
 
     override fun onClick(v: View, data: Data) {
-        val detail = Intent(activity, DetailActivity::class.java)
+        val detail = Intent(activity, DetailActivity::class.java).putExtra("data", data)
         startActivity(detail)
     }
 
-    override fun onHomeSuccess(homeResponse: HomeResponse) {
+    override fun onHomeSuccess(homeResponse: PaginateResponse<Data>) {
         var adapter = HomeNewtasteAdapter(homeResponse.data,this)
         var layoutManager: RecyclerView.LayoutManager= LinearLayoutManager(context,
             LinearLayoutManager.VERTICAL,false)
