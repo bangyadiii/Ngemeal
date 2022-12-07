@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_marginLeft="24dp"
+    android:layout_width="200dp"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/white_smoke"
+    android:background="@drawable/shape_rectangle_8_fff">
+
+    <ImageView
+        android:id="@+id/ivPoster"
+        android:background="@color/white_smoke1"
+        android:layout_width="200dp"
+        android:layout_height="140dp"/>
+
+    <TextView
+        android:id="@+id/tvTitleFood"
+        style="@style/TextView.PoppinsNormal16spBlack"
+        android:background="@color/white_smoke1"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"/>
+<RatingBar
+        android:id="@+id/rbFood"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:theme="@style/RatingBar"
+        android:layout_marginTop="6dp"
+        android:layout_marginStart="12dp"
+        android:background="@color/white_smoke1"
+        android:layout_marginBottom="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

@@ -1,5 +1,6 @@
 package com.ngemeal.ngemeal.ui.home.recommended
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,14 +9,19 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ngemeal.ngemeal.R
 import com.ngemeal.ngemeal.databinding.FragmentHomeNewTasteBinding
 import com.ngemeal.ngemeal.model.dummy.HomeVerticalModel
+import com.ngemeal.ngemeal.model.response.home.Data
+import com.ngemeal.ngemeal.model.response.PaginateResponse
+import com.ngemeal.ngemeal.ui.detail.DetailActivity
+import com.ngemeal.ngemeal.ui.home.newtaste.HomeNewTasteContract
+import com.ngemeal.ngemeal.ui.home.newtaste.HomeNewTastePresenter
 import com.ngemeal.ngemeal.ui.home.newtaste.HomeNewtasteAdapter
 
-class HomeRecommendedFragment : Fragment(),HomeNewtasteAdapter.ItemAdapterCallback  {
+class HomeRecommendedFragment : Fragment(),HomeNewtasteAdapter.ItemAdapterCallback, HomeNewTasteContract.View  {
     private var foodList : ArrayList<HomeVerticalModel> = ArrayList()
 
+    private lateinit var presenter: HomeNewTastePresenter
     private var _binding: FragmentHomeNewTasteBinding? = null
     private val binding get() = _binding!!
 
@@ -32,13 +38,10 @@ class HomeRecommendedFragment : Fragment(),HomeNewtasteAdapter.ItemAdapterCallba
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        presenter = HomeNewTastePresenter(this)
+        presenter.getHome("rekomendasi")
 
-        initDataDummy()
-        var adapter = HomeNewtasteAdapter(foodList,this)
-        var layoutManager: RecyclerView.LayoutManager= LinearLayoutManager(context,
-            LinearLayoutManager.VERTICAL,false)
-        binding.rcList.layoutManager = layoutManager
-        binding.rcList.adapter = adapter
+//        initDataDummy()
     }
 
     fun initDataDummy(){
@@ -49,13 +52,36 @@ class HomeRecommendedFragment : Fragment(),HomeNewtasteAdapter.ItemAdapterCallba
 
     }
 
-    override fun onClick(v: View, data: HomeVerticalModel) {
-        Toast.makeText(context,"percobaan "+data.title, Toast.LENGTH_SHORT).show()
+    override fun onClick(v: View, data: Data) {
+        val detail = Intent(activity, DetailActivity::class.java).putExtra("data", data)
+        startActivity(detail)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onHomeSuccess(homeResponse: PaginateResponse<Data>) {
+        var adapter = HomeNewtasteAdapter(homeResponse.data,this)
+        var layoutManager: RecyclerView.LayoutManager= LinearLayoutManager(context,
+            LinearLayoutManager.VERTICAL,false)
+        binding.rcList.layoutManager = layoutManager
+        binding.rcList.adapter = adapter
+    }
+
+    override fun onHomeFailed(message: String) {
+        Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
+    }
+
+    override fun showLoading() {
+        binding.shimmerHomeVertical.startShimmer()
+        binding.shimmerHomeVertical.visibility = View.VISIBLE
+    }
+
+    override fun dismissLoading() {
+        binding.shimmerHomeVertical.stopShimmer()
+        binding.shimmerHomeVertical.visibility = View.GONE
     }
 
 }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:id="@+id/paymentSuccess"
+    tools:context=".ui.detail.PaymentSuccessFragment">
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="200dp"
+        android:layout_height="201dp"
+        android:src="@drawable/ic_success_order"/>
+
+    <TextView
+        android:id="@+id/tvJudulDisini"
+        android:text="You’ve Made Order"
+        android:layout_marginTop="30dp"
+        style="@style/TextView.PoppinsNormal20spBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tvSubtitle"
+        android:text="Mohon tunggu sebentar, selagi\n kami menyiapkan pesananmu"
+        android:layout_marginTop="6dp"
+        android:textAlignment="center"
+        style="@style/TextView.PoppinsLight14spGray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btnOtherFood"
+        style="@style/Button.Primary"
+        android:text="Order Other Foods"
+        android:textAllCaps="false"
+        android:layout_marginTop="30dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnMyOrder"
+        style="@style/Button.Secondary"
+        android:text="View My Order"
+        android:textAllCaps="false"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

@@ -10,5 +10,9 @@ data class Wrapper <T>(
 
     @Expose
     @SerializedName("data")
-    val `data`: T
+    val `data`: T,
+
+    @Expose
+    @SerializedName("errors")
+    val errors : HashMap<String, List<String>>?,
 )

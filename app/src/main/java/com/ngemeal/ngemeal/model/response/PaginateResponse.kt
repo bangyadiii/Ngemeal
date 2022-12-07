@@ -1,16 +1,16 @@
-package com.ngemeal.ngemeal.model.response.home
+package com.ngemeal.ngemeal.model.response
 
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class HomeResponse(
+data class PaginateResponse<T>(
     @Expose
     @SerializedName("current_page")
     val currentPage: Int?,
     @Expose
     @SerializedName("data")
-    val `data`: List<Data>,
+    var `data`: List<T>,
     @Expose
     @SerializedName("first_page_url")
     val firstPageUrl: String?,
@@ -25,7 +25,7 @@ data class HomeResponse(
     val lastPageUrl: String?,
     @Expose
     @SerializedName("links")
-    val links: List<Link?>?,
+    val links: List<PaginateLinks?>?,
     @Expose
     @SerializedName("next_page_url")
     val nextPageUrl: String?,

@@ -22,6 +22,8 @@
             android:layout_height="110dp"
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
+            android:background="@drawable/bg_avatar_circle"
+            android:padding="5dp"
             android:src="@drawable/empty_photo" />
     <TextView
         style="@style/TextView.PoppinsNormal16spBlack"

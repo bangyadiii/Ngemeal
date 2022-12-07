@@ -32,7 +32,7 @@ class ProfileMenuAdapter (
         private val binding get() = _binding!!
         fun bind(data: ProfileModel, itemAdapterCallback: ItemAdapterCallback){
             itemView.apply {
-                binding.tvTitle.text = data.title
+                binding.tvJuduull.text = data.title
                 itemView.setOnClickListener{itemAdapterCallback.onClick(it,data)}
             }
         }

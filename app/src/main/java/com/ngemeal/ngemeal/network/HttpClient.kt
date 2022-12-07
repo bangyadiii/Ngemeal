@@ -84,7 +84,7 @@ class HttpClient {
             for ((key, value ) in header) {
                 builder.addHeader(key, value)
             }
-            builder.method(original.method(), original.body())
+            builder.method(original.method, original.body)
 
             it.proceed(builder.build())
         }

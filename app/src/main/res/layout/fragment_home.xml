@@ -7,31 +7,35 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:background="#fff">
 
         <ImageView
             android:id="@+id/ivProfile"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginEnd="24dp"
+            android:background="@drawable/bg_avatar_circle"
+            android:padding="3dp"
             android:src="@drawable/ic_picture_empty"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvTitle"
+            android:id="@+id/tvJudulDisini"
             style="@style/TextView.PoppinsNormal20spBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="30dp"
             android:text="Ngemeal"
+            app:layout_constraintBottom_toTopOf="@+id/tvSubtitle"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
             android:id="@+id/tvSubtitle"
@@ -42,12 +46,34 @@
             android:text="Cari makanan kesukaanmu!"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/tvJudulDisini" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_home_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="222dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="#fff"
+        android:paddingTop="16dp"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            >
+            <include layout="@layout/shimmer_item_home_horizontal" />
+            <include layout="@layout/shimmer_item_home_horizontal" />
+            <include layout="@layout/shimmer_item_home_horizontal" />
+        </LinearLayout>
 
+    </com.facebook.shimmer.ShimmerFrameLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcList"
         android:clipChildren="false"

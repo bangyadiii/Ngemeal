@@ -5,20 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white">
-
-
     <TextView
-        android:id="@+id/tvTitle"
-        style="@style/EditText.PoppinsNormal14spBlack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/tvJuduull"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Edit Profile"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        tools:text="Edit Profile"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        style="@style/TextView.PoppinsLight14spGray"
+          />
+
+    <!--    <TextView-->
+<!--        android:id="@+id/tvJudulDisini"-->
+<!--        style="@style/EditText.PoppinsNormal14spBlack"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_marginBottom="8dp"-->
+<!--        tools:text="Edit Profile"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" /> -->
 
     <ImageView
         android:id="@+id/ivIcon"

@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if(Ngemeal.getApp().getToken() == null) {
+        if(Ngemeal.getApp().getUser().toString().isNullOrEmpty() || Ngemeal.getApp().getToken().toString().isNullOrEmpty()) {
             val auth = Intent(this, AuthActivity::class.java)
             startActivity(auth)
             finish()

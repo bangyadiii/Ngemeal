@@ -12,11 +12,13 @@ import com.bumptech.glide.Glide
 import com.ngemeal.ngemeal.R
 import com.ngemeal.ngemeal.databinding.ItemHomeVerticalBinding
 import com.ngemeal.ngemeal.model.dummy.HomeVerticalModel
+import com.ngemeal.ngemeal.model.response.home.Data
+import com.ngemeal.ngemeal.ui.home.HomeAdapter
 import com.ngemeal.ngemeal.utils.Helpers.formatPrice
 import java.text.FieldPosition
 
 class HomeNewtasteAdapter (
-    private val listData : List<HomeVerticalModel>,
+    private val listData : List<Data>,
     private val itemAdapterCallback: ItemAdapterCallback
     ): RecyclerView.Adapter<HomeNewtasteAdapter.ViewHolder> () {
 
@@ -37,15 +39,16 @@ class HomeNewtasteAdapter (
     class ViewHolder(itemView:ItemHomeVerticalBinding) : RecyclerView.ViewHolder(itemView.root){
         private var _binding: ItemHomeVerticalBinding? = itemView
         private val binding get() = _binding!!
-        fun bind(data: HomeVerticalModel, itemAdapterCallback: ItemAdapterCallback){
+        fun bind(data: Data, itemAdapterCallback: ItemAdapterCallback){
             itemView.apply {
-                binding.tvTitle.text = data.title
-                binding.tvPrice.formatPrice(data.price)
-                binding.rbFood.rating = data.rating
+                binding.textView.text = if (data.name!!.length > 35) data.name.substring(35).trim() +"..."
+                                        else   data.name
+                binding.tvPrice.formatPrice(data.price!!.toString())
+                binding.rbFood.rating = data.rate!!
 
-//                Glide.with(context)
-//                    .load(data.src)
-//                    .into(binding.ivPoster)
+                Glide.with(context)
+                    .load(data.images?.get(0)?.imageUrl)
+                    .into(binding.ivPoster)
 
                 itemView.setOnClickListener{itemAdapterCallback.onClick(it,data)}
             }
@@ -58,6 +61,6 @@ class HomeNewtasteAdapter (
     }
 
     interface ItemAdapterCallback{
-        fun onClick(v:View, data:HomeVerticalModel)
+        fun onClick(v:View, data:Data)
     }
 }
