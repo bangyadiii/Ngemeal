@@ -15,6 +15,7 @@ import com.ngemeal.ngemeal.R
 import com.ngemeal.ngemeal.databinding.FragmentOrdersBinding
 import com.ngemeal.ngemeal.model.response.PaginateResponse
 import com.ngemeal.ngemeal.model.response.transaction.Transaction
+import com.ngemeal.ngemeal.ui.MainActivity
 
 class OrderFragment : Fragment(), OrderContract.View {
 
@@ -47,7 +48,11 @@ class OrderFragment : Fragment(), OrderContract.View {
     }
 
     private fun initView(){
+        binding.iniToolbar1.toolbar.title = "Pesanan Kamu"
+        binding.iniToolbar1.toolbar.subtitle = "List semua pesanan kamu"
+
         this.progressDialog = Dialog(requireContext())
+
         val dialogLayout  = layoutInflater.inflate(R.layout.dialog_loader, null)
 
         progressDialog?.let {

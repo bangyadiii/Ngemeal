@@ -3,6 +3,7 @@ package com.ngemeal.ngemeal.ui.profile
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.google.android.gms.auth.api.Auth
 import com.google.gson.Gson
 import com.ngemeal.ngemeal.Ngemeal
 import com.ngemeal.ngemeal.R
@@ -38,10 +40,7 @@ class ProfileFragment : Fragment(), ProfileManagementContract.View {
         val root: View = binding.root
 
         var userString = Ngemeal.getApp().getUser()
-        var token = Ngemeal.getApp().getToken()
         this.user = Gson().fromJson(userString, User::class.java)
-        Toast.makeText(requireContext(), "token : " + token, Toast.LENGTH_SHORT).show()
-
         initView()
         return root
     }
@@ -77,7 +76,9 @@ class ProfileFragment : Fragment(), ProfileManagementContract.View {
         user?.let {
             Glide.with(requireContext())
                 .load(it.profile_photo_url)
-                .apply(RequestOptions.circleCropTransform())
+                .apply(RequestOptions.circleCropTransform()
+                    .error(R.drawable.empty_photo)
+                )
                 .override(250, 250)
                 .into(binding.ivAvatar)
             binding.tvName.text = it.name
@@ -90,7 +91,6 @@ class ProfileFragment : Fragment(), ProfileManagementContract.View {
 
     }
     override fun onLogoutSuccess() {
-        Toast.makeText(requireContext(), "Logout berhasil", Toast.LENGTH_SHORT).show()
         var intent = Intent(requireActivity(), AuthActivity::class.java)
         Ngemeal.getApp().unsetUser()
         Ngemeal.getApp().unsetToken()
@@ -99,7 +99,15 @@ class ProfileFragment : Fragment(), ProfileManagementContract.View {
     }
 
     override fun onLogoutFailed(message: String) {
-        Toast.makeText(requireContext(),  "logout failed : " + message, Toast.LENGTH_SHORT).show()
+        if(message.contains("Unauthorized", true)){
+            Ngemeal.getApp().unsetToken()
+            Ngemeal.getApp().unsetUser()
+            var intent = Intent(activity, AuthActivity::class.java)
+            startActivity(intent)
+            activity?.finish()
+        }else{
+            Toast.makeText(requireContext(),  "logout failed : " + message, Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun showLoading() {

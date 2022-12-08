@@ -8,8 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.ngemeal.ngemeal.R
 import com.ngemeal.ngemeal.databinding.FragmentInProgressBinding
 import com.ngemeal.ngemeal.databinding.FragmentPastProgressBinding
 import com.ngemeal.ngemeal.model.response.PaginateResponse
@@ -63,6 +65,10 @@ class PastOrdersFragment : Fragment(), PastOrderAdapter.ItemAdapterCallback, Ord
 
     override fun onClick(v: View, data: Transaction) {
         Toast.makeText(requireActivity(), "Tsest clik", Toast.LENGTH_SHORT).show()
+        var bundler = Bundle()
+        bundler.putParcelable("data", data)
+        var navController = Navigation.findNavController(v)
+        navController.navigate(R.id.action_navigation_order_to_fragmentDetailOrders ,bundler)
     }
 
     override fun onTransactionSuccess(transactionResponse: PaginateResponse<Transaction>) {

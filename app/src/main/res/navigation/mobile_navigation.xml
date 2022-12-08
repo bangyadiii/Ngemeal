@@ -34,6 +34,11 @@
             app:destination="@id/navigation_home"
             app:popUpTo="@id/navigation_home"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_navigation_order_to_fragmentDetailOrders"
+            app:destination="@id/fragmentDetailOrders"
+            app:popUpTo="@id/navigation_order"
+            app:popUpToInclusive="false" />
     </fragment>
 
     <fragment
@@ -51,4 +56,18 @@
             app:popUpTo="@id/navigation_order"
             app:popUpToInclusive="true" />
     </fragment>
+
+    <fragment android:id="@+id/fragmentDetailOrders"
+        android:name="com.ngemeal.ngemeal.ui.order.detailorders.OrderDetailFragment"
+        tools:layout="@layout/fragment_order_detail">
+
+        <argument android:name="data"
+            app:argType="com.ngemeal.ngemeal.model.response.transaction.Transaction"
+            app:nullable="true"/>
+        <action
+            android:id="@+id/action_fragmentDetailOrders_to_navigation_order"
+            app:destination="@id/navigation_order" />
+
+    </fragment>
+
 </navigation>

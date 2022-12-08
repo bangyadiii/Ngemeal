@@ -9,51 +9,51 @@ import kotlinx.android.parcel.Parcelize
 data class User(
     @Expose()
     @SerializedName("id")
-    val id: String,
+    val id: String?,
 
     @Expose()
     @SerializedName("name")
-    val name: String,
+    val name: String?,
 
     @Expose()
     @SerializedName("email")
-    val email: String,
+    val email: String?,
 
     @Expose()
     @SerializedName("email_verified_at")
-    val email_verified_at: String,
+    val email_verified_at: String?,
 
     @Expose()
     @SerializedName("address")
-    val address: String,
+    val address: String?,
 
     @Expose()
     @SerializedName("city")
-    val city: String,
+    val city: String?,
 
     @Expose()
     @SerializedName("house_number")
-    val house_number: String,
+    val house_number: String?,
 
     @Expose()
     @SerializedName("phone_number")
-    val phone_number: String,
+    val phone_number: String?,
 
     @Expose()
     @SerializedName("profile_photo_path")
-    val profile_photo_path: String,
+    val profile_photo_path: String?,
 
     @Expose()
     @SerializedName("profile_photo_url")
-    val profile_photo_url: String,
+    val profile_photo_url: String?,
 
     @Expose()
     @SerializedName("role_id")
-    val roleId: Int,
+    val roleId: Int?,
 
     @Expose()
     @SerializedName("two_factor_confirmed_at")
-    val two_factor_confirmed_at: String,
+    val two_factor_confirmed_at: String?,
 
     @Expose()
     @SerializedName("created_at")

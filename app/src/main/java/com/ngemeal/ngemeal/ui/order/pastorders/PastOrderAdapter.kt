@@ -54,7 +54,13 @@ class PastOrderAdapter (
                 binding.tvPrice.formatPrice(data.total!!.toString())
                 binding.tvHargaaa.text = data.updatedAt?.convertLongToTime("MMM dd, HH:mm")
                 binding.tvPaymentStatus.text = data.trxStatus
-
+                data.trxStatus?.let {
+                    if(it.equals("pending", true) || it.equals("failed", true) || it.equals("cancelled")){
+                        binding.tvPaymentStatus.setTextColor(resources.getColor(R.color.red_accent))
+                    }else{
+                        binding.tvPaymentStatus.setTextColor(resources.getColor(R.color.teal_700))
+                    }
+                }
                 Glide.with(itemView.context)
                     .load(data.food.images?.get(0)?.imageUrl)
                     .centerCrop()

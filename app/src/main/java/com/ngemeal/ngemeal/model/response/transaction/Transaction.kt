@@ -38,6 +38,9 @@ data class Transaction(
     @SerializedName("md_snap_token")
     val mdSnapToken: String?,
     @Expose
+    @SerializedName("snap_token")
+    val snapToken: String?,
+    @Expose
     @SerializedName("metadata")
     val metadata: String?,
     @Expose

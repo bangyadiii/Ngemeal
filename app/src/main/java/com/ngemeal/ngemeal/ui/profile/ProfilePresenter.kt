@@ -24,7 +24,7 @@ class ProfilePresenter(private val view : ProfileManagementContract.View) : Prof
                 if (it.meta?.status.equals("success", true)) {
                     view.onLogoutSuccess()
                 } else {
-                    it.meta?.message?.let { it1 -> view.onLogoutFailed(it1) }
+                    view.onLogoutFailed(it.meta?.message!!)
                 }
             }, {
                 view.dismissLoading()

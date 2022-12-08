@@ -31,7 +31,6 @@ class PaymentSuccessFragment : Fragment() {
         binding.btnOtherFood.setOnClickListener{
             requireActivity().finish()
         }
-
     }
 
     override fun onDestroyView() {

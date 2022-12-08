@@ -9,27 +9,28 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         android:gravity="center"
-        android:padding="25dp"
+        android:padding="15dp"
         android:background="#fff">
 
         <ImageView
             android:id="@+id/ivAvatar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_picture_empty"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/bg_avatar_circle"
             android:padding="5dp"
+            android:src="@drawable/ic_picture_empty"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
             android:id="@+id/tvName"
-            style="@style/TextView.PoppinsNormal20spBlack"
-            android:layout_width="25dp"
+            style="@style/TextView.PoppinsNormal16spBlack"
+            android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_marginStart="32dp"
             android:text="Ronaldo Messy"
@@ -40,7 +41,7 @@
 
         <TextView
             android:id="@+id/tvEmail"
-            style="@style/TextView.PoppinsLight14spGray"
+            style="@style/TextView.PoppinsLight10spGray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -52,17 +53,19 @@
             android:id="@+id/btnLogout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_margin="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="32dp"
             android:background="@color/zxing_transparent"
             android:drawableLeft="@drawable/logout"
             android:drawableTint="@color/red_accent"
             android:padding="0dp"
             android:text="Logout"
+            android:textSize="10dp"
             android:textColor="@color/red_accent"
-            app:layout_constraintBottom_toBottomOf="@+id/ivAvatar"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/tvEmail"
             app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

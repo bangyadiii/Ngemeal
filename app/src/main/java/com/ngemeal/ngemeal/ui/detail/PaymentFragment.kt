@@ -68,6 +68,7 @@ class PaymentFragment : Fragment(), PaymentContract.View {
     }
 
     private fun initView(it : Data){
+
         Glide.with(requireContext())
             .load(it.images?.get(0)?.imageUrl)
             .into(binding.ivPoster)
@@ -117,7 +118,6 @@ class PaymentFragment : Fragment(), PaymentContract.View {
         initMidtransSDK(view)
 
         var snapToken = checkoutResponse.snapToken ?: checkoutResponse.mdSnapToken
-        Toast.makeText(requireContext(), snapToken, Toast.LENGTH_SHORT).show()
         var uiSetting = UIKitCustomSetting()
         uiSetting.isSkipCustomerDetailsPages = true
         uiSetting.isEnabledAnimation = true
@@ -143,7 +143,7 @@ class PaymentFragment : Fragment(), PaymentContract.View {
     }
 
     private fun initMidtransSDK(view : View){
-        SdkUIFlowBuilder.init()
+        var ads = SdkUIFlowBuilder.init()
             .setClientKey(BuildConfig.MIDTRANS_CLIENT_KEY)
             .setContext(requireActivity())
             .setTransactionFinishedCallback {

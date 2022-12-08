@@ -77,16 +77,8 @@ class HomeFragment : Fragment(), HomeAdapter.ItemAdapterCallback, HomeContract.V
         }
     }
 
-//    fun initDataDummy(){
-//        foodList = ArrayList()
-//        foodList.add(HomeModel("Cherry", "",5f))
-//        foodList.add(HomeModel("Burger", "",4f))
-//        foodList.add(HomeModel("Cherry", "",4.5f))
-//
-//    }
 
     override fun onClick(v: View, data: Data) {
-        Toast.makeText(requireContext(), data.id?.toString(), Toast.LENGTH_LONG).show()
         val detail = Intent(activity, DetailActivity::class.java).putExtra("data", data )
         startActivity(detail)
     }
@@ -97,7 +89,6 @@ class HomeFragment : Fragment(), HomeAdapter.ItemAdapterCallback, HomeContract.V
     }
 
     override fun onHomeSuccess(homeResponse: PaginateResponse<Data>) {
-//        Glide.with(requireContext()).load()
         var adapter = HomeAdapter(homeResponse.data,this)
         var layoutManager: RecyclerView.LayoutManager= LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
         binding.rcList.layoutManager = layoutManager
