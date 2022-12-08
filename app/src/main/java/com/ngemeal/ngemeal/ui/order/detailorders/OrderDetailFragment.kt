@@ -173,15 +173,12 @@ class OrderDetailFragment : Fragment(), OrdersDetailContract.View {
             .setTransactionFinishedCallback {
                 if(it.response != null) {
                     if (it.status == TransactionResult.STATUS_SUCCESS) {
-                        Toast.makeText(requireContext(),  "payment success : " + it.response.paymentCode , Toast.LENGTH_SHORT)
-                            .show()
+
                         var transaction = requireActivity().supportFragmentManager.beginTransaction()
-                        transaction.add(R.id.detailHostFragment, OrderFragment())
+                        transaction.add(R.id.nav_host_fragment_activity_main, OrderFragment())
                         transaction.addToBackStack(null)
                         transaction.commitAllowingStateLoss()
 
-//                        val navController = Navigation.findNavController(view)
-//                        navController.navigate(R.id.action_fragmentDetailOrders_to_navigation_order)
                     } else if (it.status == TransactionResult.STATUS_PENDING) {
                         Toast.makeText(requireContext(), "PENDING", Toast.LENGTH_SHORT).show()
                     } else if (it.status == TransactionResult.STATUS_FAILED) {
